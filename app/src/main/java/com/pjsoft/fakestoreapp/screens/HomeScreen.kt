@@ -120,9 +120,10 @@ fun HomeScreen(navController: NavController) {
                         .fillMaxSize()
                         .background(Color.White)
                         .padding(horizontal = 16.dp)
+                        .offset(y = (-30).dp)
                 ) {
-                    Text("Productos", fontWeight = FontWeight.SemiBold, fontSize = 18.sp)
-                    Spacer(Modifier.height(8.dp))
+                    Text("Productos", fontWeight = FontWeight.SemiBold, fontSize = 20.sp)
+                    Spacer(Modifier.height(20.dp))
 
                     LazyColumn(
                         verticalArrangement = Arrangement.spacedBy(12.dp),
