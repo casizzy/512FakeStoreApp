@@ -1,5 +1,6 @@
 package com.pjsoft.fakestoreapp
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -28,7 +29,7 @@ import com.pjsoft.fakestoreapp.ui.theme.ProductDetailScreenRoute
 * 4. Refrescar UI
 * */
 
-
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +37,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             FakeStoreAppTheme {
                 val navController = rememberNavController()
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Scaffold(modifier = Modifier.fillMaxSize()) {  innerPadding ->
                     NavHost(
                         navController = navController,
                         startDestination = HomeScreenRoute
@@ -48,7 +49,7 @@ class MainActivity : ComponentActivity() {
                         }
                         composable<ProductDetailScreenRoute> { backStack ->
                             val args = backStack.toRoute<ProductDetailScreenRoute>()
-                            ProductDetailScreen(args.id)
+                            ProductDetailScreen(navController, args.id)
                         }
                     }
                 }
